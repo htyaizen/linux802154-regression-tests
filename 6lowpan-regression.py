@@ -150,7 +150,7 @@ def tcp_tests(cmd, message, address, port):
         interface = ""
 
     try:
-        ret = cmd("echo {0} | ncat -6 {1}{2} {3}".format(message, address, interface, port), _bg=True)
+        ret = cmd("echo {0} | ncat -6 {1}{2} {3}".format(message, address, interface, port), _bg=True, _ok_code=[-9])
         time.sleep(2)  # message should be received by then
         ret.kill()
 
